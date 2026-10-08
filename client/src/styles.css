@@ -1,0 +1,532 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #1e1e1e;
+  background: #fcfcfb;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.auth-page,
+.access-denied-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 2rem;
+}
+
+.auth-card {
+  width: min(100%, 650px);
+  min-height: 610px;
+  border: 1px solid #d6d2c9;
+  border-radius: 0 0 20px 20px;
+  background: #fff;
+}
+
+.auth-card__header,
+.app-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 60px;
+  padding: 0 2rem;
+  border-bottom: 1px dashed #dfdcd5;
+}
+
+.brand {
+  font-size: 0.93rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.auth-switch,
+.auth-prompt a,
+.app-navigation a,
+.text-button {
+  color: #66645f;
+  text-decoration: none;
+}
+
+.auth-switch:hover,
+.auth-prompt a:hover,
+.app-navigation a:hover,
+.text-button:hover {
+  color: #1e1e1e;
+}
+
+.auth-card__content {
+  width: min(100% - 4rem, 470px);
+  margin: 0 auto;
+  padding: 4.25rem 0 3rem;
+}
+
+.auth-heading {
+  margin-bottom: 2.25rem;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.7rem;
+  color: #98958e;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.65rem, 4vw, 2.15rem);
+  letter-spacing: -0.045em;
+}
+
+.auth-heading p:last-child,
+.placeholder-card > p:not(.eyebrow) {
+  color: #77746e;
+  line-height: 1.5;
+}
+
+.auth-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.auth-form label {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.auth-form label span {
+  color: #6f6c66;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.auth-form input {
+  width: 100%;
+  height: 48px;
+  padding: 0 1rem;
+  border: 1px solid #d8d4cc;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+}
+
+.auth-form input:focus {
+  border-color: #222;
+  box-shadow: 0 0 0 3px #e9e8e4;
+}
+
+.primary-button {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 10px;
+  padding: 0 1.2rem;
+  background: #1e1e1d;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.primary-button:hover {
+  background: #363531;
+}
+
+.primary-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.form-error {
+  margin: 0;
+  color: #b42318;
+  font-size: 0.9rem;
+}
+
+.auth-prompt {
+  margin: 1.7rem 0 0;
+  color: #97948d;
+  text-align: center;
+}
+
+.protected-page {
+  width: min(100% - 2rem, 960px);
+  margin: 0 auto;
+  padding: 1.5rem 0 4rem;
+}
+
+.app-navigation {
+  min-height: 64px;
+  padding: 0;
+  border-bottom-style: solid;
+}
+
+.app-navigation nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.app-navigation .active {
+  color: #1e1e1e;
+  font-weight: 700;
+}
+
+.role-badge {
+  border-radius: 999px;
+  padding: 0.22rem 0.58rem;
+  background: #eeece7;
+  color: #65615a;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.role-badge--admin {
+  background: #e5f1ff;
+  color: #1762a2;
+}
+
+.text-button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.placeholder-card {
+  width: min(100%, 640px);
+  margin: 5rem auto 0;
+  padding: 2.5rem;
+  border: 1px solid #d6d2c9;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.page-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin: 3.5rem 0 2rem;
+}
+
+.page-heading .primary-button {
+  min-height: 46px;
+}
+
+.status-message,
+.empty-state {
+  margin: 2rem 0;
+  color: #77746e;
+}
+
+.status-message--error {
+  color: #b42318;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.book-card {
+  min-height: 250px;
+  border: 1px solid #ddd9d1;
+  border-radius: 12px;
+  padding: 1.25rem;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.book-card:hover {
+  border-color: #99948a;
+  transform: translateY(-2px);
+}
+
+.book-cover {
+  display: grid;
+  min-height: 120px;
+  place-items: center;
+  border-radius: 8px;
+  background: linear-gradient(140deg, #ded8cc, #f1eee8);
+  color: #70685a;
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.book-card h2 {
+  margin: 1rem 0 0.3rem;
+  font-size: 1.05rem;
+}
+
+.book-card p {
+  margin: 0;
+  color: #77746e;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #ddd9d1;
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #e4e0d9;
+  text-align: left;
+}
+
+th {
+  background: #f4f2ed;
+  color: #6e6a63;
+  font-size: 0.82rem;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+.table-link {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.table-link:hover {
+  text-decoration: underline;
+}
+
+.actions-cell {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
+.secondary-button,
+.danger-button {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #cac5bb;
+  border-radius: 9px;
+  padding: 0 0.8rem;
+  background: #fff;
+  color: #282725;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.danger-button {
+  border-color: #f0b3b0;
+  color: #b42318;
+}
+
+.danger-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2.6rem;
+  color: #69665f;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #1e1e1e;
+}
+
+.book-detail {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.7fr) minmax(0, 1.3fr);
+  gap: 2.5rem;
+  align-items: center;
+  margin-top: 2.5rem;
+  padding: 2.5rem;
+  border: 1px solid #ddd9d1;
+  border-radius: 14px;
+}
+
+.book-cover--large {
+  min-height: 280px;
+}
+
+dl {
+  display: flex;
+  gap: 3rem;
+  margin: 2.2rem 0 0;
+}
+
+dt {
+  color: #96928b;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+dd {
+  margin: 0.4rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.form-card {
+  margin-top: 2rem;
+  padding: 2.4rem;
+  border: 1px solid #d6d2c9;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.form-card__heading {
+  margin-bottom: 2rem;
+}
+
+.resource-form {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.resource-form label {
+  display: grid;
+  gap: 0.48rem;
+  color: #6f6c66;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.resource-form input,
+.resource-form select {
+  min-height: 46px;
+  border: 1px solid #d8d4cc;
+  border-radius: 9px;
+  padding: 0 0.9rem;
+  background: #fff;
+  color: #1e1e1e;
+  text-transform: none;
+}
+
+.resource-form input:focus,
+.resource-form select:focus {
+  outline: none;
+  border-color: #222;
+  box-shadow: 0 0 0 3px #e9e8e4;
+}
+
+.resource-form--two-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.resource-form--two-columns .form-actions,
+.resource-form--two-columns .status-message {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.access-denied-page .placeholder-card {
+  margin: 0;
+  text-align: center;
+}
+
+.access-denied-page .primary-button {
+  margin-top: 1rem;
+}
+
+@media (max-width: 560px) {
+  .auth-page,
+  .access-denied-page {
+    padding: 1rem;
+  }
+
+  .auth-card {
+    min-height: 560px;
+  }
+
+  .auth-card__header {
+    padding: 0 1.25rem;
+  }
+
+  .auth-card__content {
+    width: min(100% - 2.5rem, 470px);
+    padding-top: 3rem;
+  }
+
+  .protected-page {
+    width: min(100% - 1.5rem, 960px);
+  }
+
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-detail,
+  .resource-form--two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .book-detail {
+    padding: 1.5rem;
+  }
+
+  .book-cover--large {
+    min-height: 200px;
+  }
+
+  .page-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .form-card {
+    padding: 1.5rem;
+  }
+
+  .app-navigation nav {
+    gap: 0.7rem;
+  }
+
+  .role-badge {
+    display: none;
+  }
+}
